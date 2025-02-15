@@ -1,0 +1,144 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+/* Landing Page Container */
+.landing-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 10%;
+  background-color: #f9f9f9;
+}
+
+/* Text Content */
+.text-content {
+  max-width: 40%;
+}
+
+/* Headings */
+h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #111;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+p {
+  font-size: 18px;
+  color: #444;
+  opacity: 0;
+  animation: slideUp 1.5s ease-in-out forwards;
+}
+
+/* Buttons */
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, opacity 0.3s;
+}
+
+.read-report {
+  background-color: #4caf50;
+  color: white;
+}
+
+.learn-more {
+  background-color: white;
+  color: #333;
+  border: 1px solid #333;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+/* Image Container */
+.image-content {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Animations */
+.image-animate {
+  width: 100%;
+  max-width: 450px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInScale 1.5s ease-in-out forwards 0.5s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .landing-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .text-content {
+    max-width: 100%;
+  }
+
+  .button-group {
+    justify-content: center;
+  }
+
+  .image-animate {
+    max-width: 100%;
+  }
+}
