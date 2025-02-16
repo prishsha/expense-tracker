@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { UserButton, useUser } from '@clerk/clerk-react'
 
 const Header = () => {
-    const {user} = useUser();
+    const { user } = useUser();
 
     const [darkMode, setDarkMode] = useState(
         localStorage.getItem("darkMode") === "true"
@@ -16,10 +16,12 @@ const Header = () => {
     return (
         <header className="header">
             <h1>Hi {user?.firstName}! Here are your expenses</h1>
-            <button className="dark-mode-toggle" onClick={() => setDarkMode(!darkMode)}>
-                {darkMode ? "☀️" : "🌙"}
-            </button>
-            <UserButton/>
+            <div className="header-contents">
+                <button className="dark-mode-toggle" onClick={() => setDarkMode(!darkMode)}>
+                    {darkMode ? "☀️" : "🌙"}
+                </button>
+                <UserButton />
+            </div>
         </header>
     );
 };
