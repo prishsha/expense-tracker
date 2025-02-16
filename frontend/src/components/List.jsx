@@ -31,7 +31,7 @@ const List = () => {
                 accessor: 'category',
             },
             {
-                Header: 'Actions',
+                Header: '',
                 accessor: 'actions',
                 Cell: ({ row }) => (
                     <>

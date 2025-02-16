@@ -7,20 +7,69 @@ body {
   padding: 0;
 }
 
-h1 {
-  text-align: center;
-  color: #2D336B;
+.dark-mode{
+  background-color: #352F44;
+  color: #352F44;
 }
 
 /* Header */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Push heading left, buttons right */
   align-items: center;
-  padding: 1rem;
+  width: 100%;
+  padding: 1rem 2rem;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header contents (button container) */
+.header-contents {
+  display: flex;
+  align-items: center;
+  gap: 4px !important; /* Ensure minimal space between buttons */
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure buttons don't have extra margin */
+.dark-mode-toggle,
+.user-button {
+  margin: 0; /* Remove any default margins */
+  padding: 8px 12px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dark-mode .header {
+  background-color: #5C5470;
+  color: #ccc;
+}
+
+
+.dark-mode h1{
+  color: #FAF0E6;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  background: none;
+  border-style: solid;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Dashboard Layout */
@@ -36,9 +85,14 @@ h1 {
   gap: 20px;
 }
 
+/* Dark Mode */
+.dark-mode .dashboard-container{
+  background-color: #FAF0E6;
+}
+
 /* Left Column: Form and Pie Chart */
 .left-column {
-  flex: 1;
+  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -51,6 +105,19 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 2px 6px #2D336B;
+}
+
+.form-container-1 {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0px 2px 6px #2D336B;
+}
+
+/* Dark Mode */
+.dark-mode .form-container{
+  background-color: #B9B4C7;
 }
 
 .input {
@@ -79,10 +146,15 @@ h1 {
   transform: scale(1.05);
 }
 
+/* Dark Mode */
+.dark-mode .button{
+  background-color: #5C5470;
+}
+
 /* Pie Chart */
 .piechart-container {
   background: #ffffff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -92,12 +164,22 @@ h1 {
 
 /* Right Column: Table */
 .right-column {
-  flex: 2;
+  flex: 4;
   min-width: 500px;
 }
 
 .table-container {
   overflow-x: auto;
+}
+
+/* Search Bar */
+.table-controls input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #6d6060;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .table {
@@ -124,27 +206,24 @@ h1 {
   background: #f1f1f1;
 }
 
-/* Dark Mode Styles */
-.dark-mode {
-  background-color: #352F44;
-  color: #FAF0E6;
+/* Table Actions */
+.action-btn {
+  padding: 6px 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.dark-mode .header,
-.dark-mode .form-container,
-.dark-mode .piechart-container,
-.dark-mode .table {
-  background-color: #5C5470;
-  color: #FAF0E6;
+.delete-btn {
+  background: #e74c3c;
+  color: white;
 }
 
-.dark-mode .table th {
-  background-color: #352F44;
-}
-
-.dark-mode .button {
-  background-color: #B9B4C7;
-  color: #352F44;
+.delete-btn:hover {
+  background: #c0392b;
 }
 
 /* Responsive Design */
@@ -158,4 +237,68 @@ h1 {
     width: 100%;
     min-width: unset;
   }
+}
+
+/* Smooth transition for dark mode */
+body, .header, .dashboard-container, .form-container, .button, .table th {
+  transition: all 0.3s ease;
+}
+
+/* Button hover effects */
+.button, .action-btn, .dark-mode-toggle {
+  transition: all 0.3s ease;
+}
+
+.button:hover, .action-btn:hover, .dark-mode-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form input focus animation */
+.input {
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #A9B5DF;
+  box-shadow: 0 0 0 2px rgba(169, 181, 223, 0.3);
+}
+
+/* Table row hover animation */
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pie chart container hover effect */
+.piechart-container {
+  transition: all 0.3s ease;
+}
+
+.piechart-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Header hover effect */
+.header {
+  transition: all 0.3s ease;
+}
+
+.header:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dashboard container hover effect */
+.dashboard-container {
+  transition: all 0.3s ease;
+}
+
+.dashboard-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

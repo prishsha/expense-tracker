@@ -37,7 +37,7 @@ const Form = () => {
   return (
     <div className='form-container'>
         <form onSubmit={handleSubmit}>
-            <div className='form-container'>
+            <div className='form-container-1'>
                 <label>Description:</label>
                 <input 
                     type='text' 
@@ -47,7 +47,7 @@ const Form = () => {
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </div>
-            <div className='form-container'>
+            <div className='form-container-1'>
                 <label>Amount:</label>
                 <input 
                     type='number' 
@@ -57,7 +57,7 @@ const Form = () => {
                     onChange={(e) => setAmount(e.target.value)}
                 />
             </div>
-            <div className='form-container'>
+            <div className='form-container-1'>
                 <label>Category:</label>
                 <select 
                     required   
